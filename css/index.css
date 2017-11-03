@@ -1,0 +1,264 @@
+.jd_container{
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0px auto;
+    display: block;
+
+}
+.jd_search{
+    /*fixed的基准是浏览器*/
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100%;
+    z-index: 999;
+
+}
+.jd_search .jd_search_box{
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    height:40px;
+    margin: 0 auto;
+    background: rgba(222,24,27,0);
+    position: relative;
+}
+.jd_search .jd_search_box form{
+    width: 100%;
+    padding-right: 50px;
+    padding-left: 10px;
+    height:40px;
+
+}
+
+.jd_search .jd_search_box form input{
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+.jd_search .jd_search_box .login{
+    position: absolute;
+    top:0;
+    right:0;
+    float: right;
+    width: 50px;
+    height:40px;
+    line-height:40px;
+    text-align: center;
+    color: #fff;
+}
+/*轮播图*/
+.jd_banner{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.jd_banner ul:first-child{
+    width:600%;
+    transform: translateX(-16.66666666%);
+    -webkit-transform: translateX(-16.6666666%);
+
+}
+.jd_banner ul:first-child li{
+    width: 16.66666666%;
+    float: left;
+}
+.jd_banner ul:first-child li a{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:first-child li a img{
+    width: 100%;
+    display: block;
+}
+
+.jd_banner ul:last-child{
+    position: absolute;
+    bottom:8px;
+    left: 50%;
+    margin-left: -27px;
+    width: 54px;
+}
+.jd_banner ul:last-child li{
+    width: 6px;
+    height:6px;
+    border-radius: 3px;
+    border: 1px solid red;
+    margin-left: 10px;
+    float: left;
+}
+.jd_banner ul:last-child li:first-child{
+    margin-left: 0px;
+}
+.jd_banner ul:last-child .now{
+    background: #fff;
+}
+
+.jd_nav{
+    width: 100%;
+}
+.jd_nav ul{
+    width: 100%;
+    padding: 10px 0px;
+    background: #ffffff;
+}
+.jd_nav ul li{
+    width: 25%;
+    float: left;
+}
+.jd_nav ul li a{
+    width: 100%;
+    display: block;
+}
+.jd_nav ul li a img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.jd_nav ul li a p{
+    color: #666;
+    font-size: 12px;
+    padding: 5px 0;
+    text-align: center;
+}
+/*商品模块*/
+.jd_product{
+    padding: 0 5px;
+}
+.jd_proBox{
+    margin-top: 10px;
+    box-shadow: 0 0 1px #d8d8d8;
+    background: #fff;
+}
+.jd_proBox .pro_title{
+    height:34px;
+    line-height:34px;
+    border-bottom: 1px solid #ddd;
+
+}
+.jd_proBox .pro_title.no_b{
+    border-bottom: none;
+
+}
+.jd_proBox .pro_title h3{
+    position: relative;
+    text-indent: 20px;
+    font-weight: normal;
+}
+.jd_proBox .pro_title h3:before{
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 12px;
+    background: #de181b;
+    left: 10px;
+    top: 10px;
+}
+.jd_proBox .pro_content{
+
+}
+/*秒杀头*/
+.skill_icon{
+    width: 69px;
+    height: 27px;
+    float: left;
+    margin-top: 7px;
+    margin-left: 10px;
+    background: url("../images/skill.png") no-repeat;
+    background-size: 69px 27px;
+}
+.skill_time{
+    float: left;
+    margin-left: 10px;
+}
+.skill_time span{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    float: left;
+    margin-left: 3px;
+    background: #333333;
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+
+}
+.skill_time span:nth-child(3n){
+    background: #fff;
+    width: 3px;
+    color: #ccc;
+}
+/*秒杀商品*/
+.sk_product{
+    width: 100%;
+    padding: 10px 0;
+}
+.sk_product li{
+    width:33.33333%;
+    float: left;
+}
+.sk_product li a{
+    width: 100%;
+    display: block;
+    border-right: 1px solid #ddd;
+
+}
+.sk_product li:last-child a{
+    border-right:none;
+}
+.sk_product li a img{
+    width:64px;
+    margin:0 auto;
+    display: block;
+}
+.sk_product li p{
+    text-align: center;
+    font-size: 12px;
+}
+.sk_product li .now_price{
+    color: #de181b;
+}
+.sk_product li .old_price{
+    color: #666;
+}
+/*组合样式*/
+.w_p33{
+    width: 33.33333%;
+}
+.w_p33 img
+{
+    width: 100%;
+}
+.w_p40{
+    width:40%;
+}
+.w_p40 img{
+    width: 100%;
+}
+.w_p60{
+    width:60%;
+}
+.w_p100{
+    width:100%;
+}
+.w_p50{
+    width:50%;
+}
+.w_p50 img{
+    width: 100%;
+    display: block;
+}
+.b_left{
+    border-left: 1px solid #F2F2F2;
+}
+.b_right{
+    border-right: 1px solid #F2F2F2;
+}
+.b_bottom{
+    border-bottom: 1px solid #F2F2F2;
+}
