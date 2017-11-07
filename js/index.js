@@ -32,7 +32,6 @@ var banner =function () {
     //大容器
     var banner=document.querySelector(".jd_banner");
     var width=banner.offsetWidth;
-    console.log(width)
     //图片容器
     var imagebox=banner.querySelector("ul:first-child");
     //指示点容器
@@ -41,19 +40,99 @@ var banner =function () {
     var points=pointBox.querySelectorAll("li");
     // console.log(points)
     //1,无缝滚动 无缝滑动（定时器 过渡 位移）
+    var addTransition=function () {
+        imagebox.style.transition='all 0.2s';
+        imagebox.style.webkitTransition='all 0.2s';
+    }
+    var removeTransition=function () {
+        imagebox.style.transition='none';
+        imagebox.style.webkitTransition='none';
+    }
+    var setTranslatex=function (translateX) {
+        imagebox.style.transform='translateX('+translateX+'px)';//位移轮播图宽度
+        imagebox.style.webkitTransform='translateX('+translateX+'px)';//位移轮播图宽度
+    }
     var index=1;
     var timer=setInterval(function () {
         index++;
-        if (index==5)
-            index=1;
         // 加过渡
-        imagebox.style.transition='all 0.2s';
-        imagebox.style.webkitTransition='all 0.2s';
+        addTransition();
         //位移
-        imagebox.style.transform='translateX('+(-index*width)+'px)';//位移轮播图宽度
-        imagebox.style.webkitTransform='translateX('+(-index*width)+'px)';//位移轮播图宽度
-
+        setTranslatex(-index*width);
     },2000)
+
+    imagebox.addEventListener("transitionend",function () {
+        if(index>=5)
+        {
+            index=1
+            // 去掉过渡
+            removeTransition()
+            //位移
+            setTranslatex(-index*width);
+        }else if (index<=0){
+            index=4
+            // 去掉过渡
+            removeTransition()
+            //位移
+            setTranslatex(-index*width);
+        }
+        setPoints();
+    })
+    
+    var setPoints=function () {
+        for (var i=0;i<points.length;i++){
+            points[i].classList.remove('now')
+        }
+        points[index-1].classList.add('now')
+    }
+    var  startX=0;
+//    触摸滑动
+    imagebox.addEventListener('touchstart',function (e) {
+        startX=e.touches[0].clientX;
+        clearInterval(timer)
+    })
+    var distanceX=0;
+    var isMove=false;
+    imagebox.addEventListener('touchmove',function (e) {
+        var moveX=e.touches[0].clientX;
+         distanceX=moveX-startX;
+        var  translateX=-index*width+distanceX;
+        removeTransition();
+        setTranslatex(translateX);
+        isMove=true;
+
+    })
+    imagebox.addEventListener('touchend',function (e) {
+        if(isMove){
+            if (Math.abs(distanceX)>width/3)
+            {
+                if(distanceX<0)
+                {
+                    index++;
+                }else{
+                    index--;
+                }
+                addTransition();
+                setTranslatex(-index*width)
+
+            }else{
+                addTransition();
+                setTranslatex(-index*width)
+            }
+        }
+        clearInterval(timer)
+        timer=setInterval(function () {
+            index++;
+            // 加过渡
+            addTransition();
+            //位移
+            setTranslatex(-index*width);
+        },2000)
+        //重置参数
+        startX=0;
+        isMove=false;
+        distanceX=0;
+    })
 }
 var countDown=function () {
 
